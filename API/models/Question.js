@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-// const { Schema } = mongoose;
 
-const questionSchema = new Schema(
+const questionSchema = new mongoose.Schema(
   {
     questionText: {
       type: String,
@@ -20,12 +19,12 @@ const questionSchema = new Schema(
       },
     ],
     // category: {
-    //   type: String, // Categoria opcional para classificar a pergunta (ex: "Social", "Personalidade", etc.)
+    //   type: String,
     //   required: true,
     // },
   },
   {
-    timestamps: true, // Cria automaticamente campos createdAt e updatedAt
+    timestamps: true,
   }
 );
 
