@@ -15,6 +15,10 @@ mongoose
     err;
   });
 
+const databaseSeeder = require('./databaseSeeder')
+// database seeder route
+app.use('/api/seed', databaseSeeder )
+
 app.get("/", (req, res) => {
   res.send("app is f running");
 });
