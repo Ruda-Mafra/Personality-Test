@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 
-const answerSchema = new Schema({
+const answerSchema = new mongoose.Schema({
   question: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Question', // Referência à pergunta respondida
     required: true
   },
