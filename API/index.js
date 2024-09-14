@@ -19,6 +19,20 @@ const databaseSeeder = require('./databaseSeeder')
 // database seeder route
 app.use('/api/seed', databaseSeeder )
 
+
+// Importando as rotas
+const questionRoutes = require('./routes/Questions');
+const answerRoutes = require('./routes/Answer');
+const resultRoutes = require('./routes/Result');
+
+// Usando as rotas
+app.use('/questions', questionRoutes);
+app.use('/answer', answerRoutes);
+app.use('/result', resultRoutes);
+
+
+
+
 app.get("/", (req, res) => {
   res.send("app is f running");
 });
