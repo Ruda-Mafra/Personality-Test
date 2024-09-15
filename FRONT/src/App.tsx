@@ -1,12 +1,12 @@
-import NavBar from "./Layouts/NavBar";
-import Footer from "./Layouts/Footer";
+import Questions from "./components/Questions";
+import Progressbar from "./components/Progressbar";
 
 
 function App() {
   return (
     <>
-      <NavBar/>
-      <Footer/>
+      <Questions/>
+      <Progressbar/>
     </>
   );
 }
