@@ -7,7 +7,6 @@ const questions = [
       { text: "Com a família", score: 3 },
       { text: "Em uma festa com desconhecidos", score: 4 },
     ],
-    // category: "Social",
   },
   {
     questionText: "Como você costuma reagir a conflitos?",
@@ -17,7 +16,6 @@ const questions = [
       { text: "Fico nervoso, mas tento dialogar", score: 3 },
       { text: "Enfrento de maneira assertiva", score: 4 },
     ],
-    // category: "Personalidade",
   },
   {
     questionText: "O que te faz sentir mais realizado?",
@@ -27,7 +25,6 @@ const questions = [
       { text: "Estar com a família", score: 3 },
       { text: "Conhecer novas pessoas", score: 4 },
     ],
-    // category: "Personalidade",
   },
   {
     questionText: "Como você prefere trabalhar?",
@@ -37,7 +34,6 @@ const questions = [
       { text: "Misturando trabalho individual e em grupo", score: 3 },
       { text: "Em grandes grupos", score: 4 },
     ],
-    // category: "Trabalho",
   },
 ];
 
