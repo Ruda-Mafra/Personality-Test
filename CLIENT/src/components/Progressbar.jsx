@@ -3,7 +3,7 @@ import { Progress } from "flowbite-react";
 const Progressbar = () => {
   return (
     <Progress
-      progress={45}
+      progress={82}
       progressLabelPosition="inside"
       textLabel
       textLabelPosition="outside"

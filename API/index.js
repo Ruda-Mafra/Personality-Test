@@ -7,6 +7,8 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 
+app.use(express.json());
+
 // connect DB
 mongoose
   .connect(process.env.MONGOOSEDB_URL)
@@ -15,23 +17,20 @@ mongoose
     err;
   });
 
-const databaseSeeder = require('./databaseSeeder')
-// database seeder route
-app.use('/api/seed', databaseSeeder )
+const databaseSeederQuestions = require("./databaseSeederQuestions");
+const databaseSeederResults = require("./databaseSeederResults");
 
+// database seeder route
+app.use("/api/seed", databaseSeederQuestions);
+app.use("/api/seed", databaseSeederResults);
 
 // Importando as rotas
-const questionRoutes = require('./routes/Questions');
-const answerRoutes = require('./routes/Answer');
-const resultRoutes = require('./routes/Result');
+const questionRoutes = require("./routes/Questions");
+const resultRoutes = require("./routes/Result");
 
 // Usando as rotas
-app.use('/questions', questionRoutes);
-app.use('/answer', answerRoutes);
-app.use('/result', resultRoutes);
-
-
-
+app.use("/api/questions", questionRoutes);
+app.use("/api/result", resultRoutes);
 
 app.get("/", (req, res) => {
   res.send("app is f running");

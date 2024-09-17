@@ -1,37 +1,43 @@
-// routes/result.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const Result = require("../models/Result"); // Importe o modelo de Result
 
-const userAnswers = {}; // Isso é temporário, como no exemplo anterior. Em um projeto real, usaria um banco de dados para armazenar as respostas.
+// Função para calcular o resultado com base na pontuação total
+async function calculateResult(score) {
+  try {
+    // Encontra o resultado que corresponde ao intervalo de pontuação
+    console.log(`Buscando resultado para a pontuação: ${score}`);
+    const result = await Result.findOne({
+      minScore: { $lte: score },
+      maxScore: { $gte: score },
+    });
 
-// Função para calcular a personalidade
-function calculatePersonality(answers) {
-    let score = 0;
+    console.log("Resultado encontrado:", result);
 
-    // Processa as respostas e incrementa o placar com base nas opções respondidas
-    for (let questionId in answers) {
-        if (answers[questionId] === 'extrovert') {
-            score++;
-        } else if (answers[questionId] === 'introvert') {
-            score--; // Aqui você pode optar por manter 0 ou -1, dependendo de sua lógica
-        }
+    if (result) {
+      return result.result;
+    } else {
+      throw new Error("Resultado não encontrado.");
     }
-
-    // Verifica o placar final para determinar a personalidade
-    if (score >= 5) {
-        return 'Extrovertido';
-    } else if (score <= 4) {
-        return 'Introvertido';
-    }
+  } catch (error) {
+    throw new Error("Erro ao calcular o resultado: " + error.message);
+  }
 }
 
-// Rota para obter o resultado final
-router.get('/', (req, res) => {
-    // Calcula o resultado com base nas respostas armazenadas em 'userAnswers'
-    const result = calculatePersonality(userAnswers);
+// Rota GET para obter o resultado com base na pontuação total
+router.get("/:score", async (req, res) => {
+  const score = parseInt(req.params.score);
 
-    // Retorna o resultado como uma resposta JSON
-    res.json({ result: result });
+  if (isNaN(score)) {
+    return res.status(400).json({ error: "Pontuação inválida." });
+  }
+
+  try {
+    const resultDescription = await calculateResult(score);
+    res.json({ result: resultDescription });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 module.exports = router;
