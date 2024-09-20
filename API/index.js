@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require('cors');
+
 
 dotenv.config();
 
@@ -19,6 +21,11 @@ mongoose
 
 const databaseSeederQuestions = require("./databaseSeederQuestions");
 const databaseSeederResults = require("./databaseSeederResults");
+
+app.use(cors({
+  origin: 'http://localhost:5173'  // Permitir o frontend acessar o backend
+}));
+
 
 // database seeder route
 app.use("/api/seed", databaseSeederQuestions);
