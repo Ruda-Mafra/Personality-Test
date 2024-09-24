@@ -1,13 +1,13 @@
 const results = [
   {
-    minScore: 5,
+    minScore: 4,
     maxScore: 10,
-    result: 'Você é introvertido.',
+    result: 'Introvert',
   },
   {
     minScore: 11,
-    maxScore: 25,
-    result: 'Você é extrovertido.',
+    maxScore: 20,
+    result: 'Extrovert',
   },
 ];
 
