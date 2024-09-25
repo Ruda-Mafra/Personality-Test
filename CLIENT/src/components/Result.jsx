@@ -40,7 +40,7 @@ const Result = () => {
         <div
           className={`w-full max-w-4xl p-6 text-center rounded-full border-2 ${
             theme === "dark"
-              ? "bg-gray-700 border-gray-500"
+              ? "border-gray-500"
               : "bg-white border-black"
           }`}
           style={{
