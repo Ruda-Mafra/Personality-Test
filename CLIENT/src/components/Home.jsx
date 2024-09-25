@@ -24,8 +24,8 @@ function Home() {
 
       {/* Retângulo com o título */}
       <div
-        className={`w-full max-w-4xl p-6 text-center rounded-full border-2 ${
-          theme === "dark" ? "bg-gray-800 border-gray-500" : "bg-white border-black"
+        className={`w-full max-w-4xl p-6 text-center rounded-full ${
+          theme === "dark" ? "bg-gray-800" : ""
         }`}
         style={{
           minHeight: "150px", // Altura mínima para manter o retângulo fixo
@@ -40,7 +40,9 @@ function Home() {
       </div>
 
       <Link to="/questions">
-        <button className="bg-black text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-600 transition mt-8">
+        <button className={`w-full max-w-4xl p-6 mt-6 text-center rounded-full border-2 ${
+          theme === "dark" ? "bg-gray-800 border-gray-500" : "bg-white border-black"
+        }`}>
           Start the Quiz
         </button>
       </Link>
