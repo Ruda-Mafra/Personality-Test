@@ -2,11 +2,6 @@
 
 A web application for assessing users' personalities through a series of engaging questions.
 
-## NPM Version
-
-- Package: Personality Test
-- License: MIT
-- NPM Downloads: [NPM Link](https://www.npmjs.com/package/your-package-name)
 
 ## Description
 
