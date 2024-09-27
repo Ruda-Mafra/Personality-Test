@@ -12,22 +12,37 @@ app.use(express.json());
 
 mongoose
   .connect(process.env.MONGOOSEDB_URL)
-  .then(() => console.log("db connected"))
-  .then((err) => {
-    err;
+  .then(() => {
+    console.log("db connected");
+    seedDatabase();
+  })
+  .catch((err) => {
+    console.error(err);
   });
 
-const databaseSeederQuestions = require("./databaseSeederQuestions");
-const databaseSeederResults = require("./databaseSeederResults");
+const seedDatabase = async () => {
+  try {
+    const Question = require("./models/Question");
+    const questions = require("./data/Questions");
+    await Question.deleteMany({});
+    await Question.insertMany(questions);
+    console.log("Questions seeded successfully!");
+
+    const Result = require("./models/Result");
+    const results = require("./data/Results");
+    await Result.deleteMany({});
+    await Result.insertMany(results);
+    console.log("Results seeded successfully!");
+  } catch (error) {
+    console.error("Error seeding the database:", error);
+  }
+};
 
 app.use(
   cors({
     origin: "http://localhost:5173",
   })
 );
-
-app.use("/api/seed", databaseSeederQuestions);
-app.use("/api/seed", databaseSeederResults);
 
 const questionRoutes = require("./routes/Questions");
 const resultRoutes = require("./routes/Result");

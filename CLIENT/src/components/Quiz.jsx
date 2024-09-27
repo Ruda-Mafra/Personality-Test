@@ -6,7 +6,7 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [theme, setTheme] = useState("light"); // Estado para o tema
+  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +49,6 @@ const Quiz = () => {
         theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-50 text-black"
       } min-h-screen flex flex-col items-center py-6`}
     >
-      {/* Botão para alternar o tema */}
       <button
         onClick={toggleTheme}
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
@@ -59,30 +58,28 @@ const Quiz = () => {
 
       <section className="flex-grow flex items-center justify-center w-full">
         <div className="max-w-3xl mx-auto">
-          {/* Pergunta */}
           <div className="flex justify-center mb-8 w-full">
-  <div
-    className={`w-full max-w-4xl p-6 text-center rounded-full ${
-      theme === "dark"
-        ? "border-gray-500 text-white"
-        : "bg-white border-black text-black"
-    }`}
-    style={{
-      maxWidth: 4000 ,
-      minHeight: "150px", // Altura mínima para manter o retângulo fixo
-      display: "flex", // Para centralizar o texto verticalmente
-      alignItems: "center", // Para centralizar o texto verticalmente
-      justifyContent: "center", // Para centralizar o texto horizontalmente
-      border: "2px solid", // Manter a borda existente
-    }}
-  >
-    <h1 className="text-2xl sm:text-3xl font-medium uppercase">
-      {questions[currentQuestion].questionText}
-    </h1>
-  </div>
-</div>
+            <div
+              className={`w-full max-w-4xl p-6 text-center rounded-full ${
+                theme === "dark"
+                  ? "border-gray-500 text-white"
+                  : "bg-white border-black text-black"
+              }`}
+              style={{
+                maxWidth: 4000,
+                minHeight: "150px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "2px solid",
+              }}
+            >
+              <h1 className="text-2xl sm:text-3xl font-medium uppercase">
+                {questions[currentQuestion].questionText}
+              </h1>
+            </div>
+          </div>
 
-          {/* Respostas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {questions[currentQuestion].options.map((option, index) => (
               <button
@@ -103,7 +100,6 @@ const Quiz = () => {
             ))}
           </div>
 
-          {/* Botão "Próxima" */}
           <div className="flex justify-center">
             <button
               onClick={handleNextQuestion}

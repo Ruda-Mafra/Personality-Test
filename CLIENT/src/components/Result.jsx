@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Result = () => {
-  const { score } = useParams(); // Obtém o somatório da URL
+  const { score } = useParams();
   const [result, setResult] = useState(null);
-  const [theme, setTheme] = useState("light"); // Estado para o tema
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // Busca o resultado no backend com base no somatório
     fetch(`http://localhost:3000/api/result/${score}`)
       .then((response) => response.json())
       .then((data) => setResult(data))
@@ -28,7 +27,6 @@ const Result = () => {
         theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-50 text-black"
       }`}
     >
-      {/* Botão para alternar o tema, centralizado no topo */}
       <button
         onClick={toggleTheme}
         className="absolute top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
@@ -44,10 +42,10 @@ const Result = () => {
               : "bg-white border-black"
           }`}
           style={{
-            minHeight: "150px", // Altura mínima para manter o retângulo fixo
-            display: "flex", // Para centralizar o texto verticalmente
-            alignItems: "center", // Para centralizar o texto verticalmente
-            justifyContent: "center", // Para centralizar o texto horizontalmente
+            minHeight: "150px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <h2 className="text-2xl sm:text-3xl font-medium">

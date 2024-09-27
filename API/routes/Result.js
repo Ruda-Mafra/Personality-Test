@@ -1,35 +1,31 @@
 const express = require("express");
 const router = express.Router();
-const Result = require("../models/Result"); // Importe o modelo de Result
-
-// Função para calcular o resultado com base na pontuação total
+const Result = require("../models/Result");
 async function calculateResult(score) {
   try {
-    // Encontra o resultado que corresponde ao intervalo de pontuação
-    console.log(`Buscando resultado para a pontuação: ${score}`);
+    console.log(`Calculating Result: ${score}`);
     const result = await Result.findOne({
       minScore: { $lte: score },
       maxScore: { $gte: score },
     });
 
-    console.log("Resultado encontrado:", result);
+    console.log("Result calculate:", result);
 
     if (result) {
       return result.result;
     } else {
-      throw new Error("Resultado não encontrado.");
+      throw new Error("Could Not Calculate Result.");
     }
   } catch (error) {
-    throw new Error("Erro ao calcular o resultado: " + error.message);
+    throw new Error("Error Calculating Result: " + error.message);
   }
 }
 
-// Rota GET para obter o resultado com base na pontuação total
 router.get("/:score", async (req, res) => {
   const score = parseInt(req.params.score);
 
   if (isNaN(score)) {
-    return res.status(400).json({ error: "Pontuação inválida." });
+    return res.status(400).json({ error: "Invalid Score." });
   }
 
   try {

@@ -6,7 +6,6 @@ const questions = [
       { text: "Reading a book", score: 2 },
       { text: "Hanging out with friends", score: 3 },
       { text: "Attending a party", score: 4 },
-      // { text: "Going to a concert", score: 5 },
     ],
   },
   {
@@ -16,7 +15,6 @@ const questions = [
       { text: "I try to stay calm", score: 2 },
       { text: "I discuss it openly", score: 3 },
       { text: "I confront the issue directly", score: 4 },
-      // { text: "I take charge and lead the resolution", score: 5 },
     ],
   },
   {
@@ -26,7 +24,6 @@ const questions = [
       { text: "Spending time with family", score: 2 },
       { text: "Building strong friendships", score: 3 },
       { text: "Meeting new people", score: 4 },
-      // { text: "Networking and socializing", score: 5 },
     ],
   },
   {
@@ -36,7 +33,6 @@ const questions = [
       { text: "With a small team", score: 2 },
       { text: "Collaborating with others", score: 3 },
       { text: "In larger teams", score: 4 },
-      // { text: "In big group projects", score: 5 },
     ],
   },
   {
@@ -46,7 +42,6 @@ const questions = [
       { text: "I prefer smaller gatherings", score: 2 },
       { text: "I enjoy them in moderation", score: 3 },
       { text: "I look forward to them", score: 4 },
-      // { text: "I thrive in large crowds", score: 5 },
     ],
   },
 ];
