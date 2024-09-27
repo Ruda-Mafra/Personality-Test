@@ -69,6 +69,9 @@ This project uses MongoDB for data storage. The database is automatically seeded
 
 If you need to reset the data, simply restart the backend, and it will clear and repopulate the database with the initial data defined in the project.
 
+> **Note:** To run this application, you'll need to set up your own MongoDB instance. You can create a free cluster using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or run MongoDB locally. Replace `your-mongodb-connection-string` with your own connection string.
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
