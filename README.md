@@ -52,24 +52,27 @@ npm run dev
 
 ## Environment Variables
 
-The environment variables can be found and modified in the `.env` file.
+You can find and modify the necessary environment variables in the .env file.
+
 
 ### Example Variables
 
 ```plaintext
 PORT=3000
 MONGOOSEDB_URL="your-mongodb-connection-string"
+USE_IN_MEMORY_DB=true
 ```
 
 Ensure to set up your database connection string appropriately.
 
 ## Database
 
-This project uses MongoDB for data storage. The database is automatically seeded with initial data every time you start the backend application, so you don't need to populate it manually.
+This application utilizes MongoDB for data storage. The database is automatically seeded with initial data whenever the backend server starts, so manual population is not required.
 
 If you need to reset the data, simply restart the backend, and it will clear and repopulate the database with the initial data defined in the project.
 
-> **Note:** To run this application, you'll need to set up your own MongoDB instance. You can create a free cluster using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or run MongoDB locally. Replace `your-mongodb-connection-string` with your own connection string.
+> **Note:** To run this application, you must set up your own MongoDB instance. You can create a free cluster using MongoDB Atlas or run MongoDB locally. Ensure to replace your-mongodb-connection-string with your actual connection string.
+
 
 
 ## Contributing
