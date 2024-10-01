@@ -9,7 +9,7 @@ async function calculateResult(score) {
       maxScore: { $gte: score },
     });
 
-    console.log("Result calculate:", result);
+    console.log("Result calculated:", result);
 
     if (result) {
       return result.result;
